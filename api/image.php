@@ -15,7 +15,7 @@ function getBingDailyImage() {
 
     if (isset($data['images'][0])) {
         $image = $data['images'][0];
-        return "https://www.bing.com" . $image['url']; // 直接返回图片链接
+        return "https://cn.bing.com" . $image['url']; // 直接返回图片链接
     }
 
     return null;
