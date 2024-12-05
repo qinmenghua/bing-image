@@ -23,4 +23,16 @@ function getBingDailyImage() {
 
 $imageUrl = getBingDailyImage();
 
-header("Location: {$imageUrl}");    // 跳转至目标图像
+// 判断是否成功获取到图片链接
+if ($imageUrl) {
+    // 关闭任何输出缓冲
+    ob_start();
+    header("Location: {$imageUrl}"); // 跳转至目标图像
+    ob_end_flush();
+    exit;
+} else {
+    // 如果获取失败，可以跳转到默认图片或显示错误信息
+    header("Location: https://s.awy.me/2024/awymebgimg.webp"); // 这里是备用图片的 URL
+    exit;
+}
+?>
